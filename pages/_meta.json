@@ -2,6 +2,6 @@
   "index": "Introduction",
   "setup": "Local Setup",
   "architecture": "Architecture",
-  "deployment": "Vercel",
+  "deployment": "Deployment",
   "supabase": "Supabase"
 }
