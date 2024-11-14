@@ -1,0 +1,65 @@
+# Setup
+
+Prerequisites:
+
+- Create account on Supabase - https://supabase.com
+- Create account on Maxbox - https://maxbox.com
+
+Clone the repository
+
+```text copy
+git clone https://github.com/mairh/smart-waste-management.git
+```
+
+Duplicate .env.example to .env.local
+
+```text copy
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=your-mapbox-token
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
+```
+
+Check Node.js version (Good practice to manage node versions using nvm)
+
+```text copy
+nvm use
+```
+
+Install packages using bun
+
+```text copy
+bun install
+```
+
+Run the application
+
+```text copy
+bun dev
+```
+
+Create sample DB schema on Supabase (SQL Editor) - Check Supabase section for details
+
+```text copy
+-- Devices table
+CREATE TABLE devices (
+    device_id VARCHAR(50) PRIMARY KEY,
+    location_name VARCHAR(100),
+    latitude DECIMAL(10,8),
+    longitude DECIMAL(11,8)
+);
+-- Readings table
+CREATE TABLE readings (
+    reading_id SERIAL PRIMARY KEY,
+    device_id VARCHAR(50) REFERENCES devices(device_id),
+    timestamp TIMESTAMP,
+    fullness_level INTEGER,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+Extra: Run IOT data simulation to update the database for realtime visualization
+
+```text copy
+bun run start:simulation
+```

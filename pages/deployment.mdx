@@ -1,0 +1,25 @@
+# Deployment on Vercel
+
+The project can de deoployed to any number of cloud providers. Vercel is recommended to deploy the NextJS application which Github CI/CD integrated.
+
+- Push the local reposity to Github
+- Create a new project on Vercel and add the Github link to the project
+- Vercel will automatically deploy the new project from Github
+- Add the required env variables - https://vercel.com/docs/projects/environment-variables
+
+Note: You can also deploy the application to Vercel using the cli command https://vercel.com/docs/cli
+
+```text copy
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=your-mapbox-token
+NEXT_PUBLIC_API_BASE_URL=your-api-base-url
+```
+
+1. Create new project and add env keys.
+
+![Vercel add project](/vercel-1.png)
+
+2. After deploying the application
+
+![Vercel dashboard](/vercel-2.png)
